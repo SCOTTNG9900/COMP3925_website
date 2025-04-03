@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Active Link on Page Scroll using Javascript</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    section {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 8em;
+      font-weight: 800;
+      color: rgba(0, 0, 0, 0.25);
+      text-transform: uppercase;
+      background: var(--clr);
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 50px 0;
+    }
+
+    .logo {
+      positon: relative;
+      color: #fff;
+      font-size: 2em;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    header nav {
+      display: flex;
+      gap: 10px;
+    }
+
+    header nav a {
+      position: relative;
+      text-decoration: none;
+      padding: 12px 20px;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    header nav a.active {
+      background: var(--clr);
+      colr: #333;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    header nav a.active::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      bottom: 0;
+      width: 20px;
+      height: 20px;
+      background: transparent;
+      border-bottom-right-radius: 20px;
+      box-shadow: 5px 5px 0 5px var(--clr);
+    }
+
+    header nav a.active::after {
+      content: '';
+      position: absolute;
+      right: -20px;
+      bottom: 0;
+      width: 20px;
+      height: 20px;
+      background: transparent;
+      border-bottom-left-radius: 20px;
+      box-shadow: -5px 5px 0 5px var(--clr);
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .images {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .images img {
+      width: 500px;
+      height: 400px;
+      margin: 0 10px;
+      border-radius: 8px;
+    }
+
+    .text {
+      font-size: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+
+    <nav>
+      <a href="#first" style="--clr:#91F9AD;" class="active">Cover</a>
+      <a href="#Intro" style="--clr:#88c5fa;">Intro</a>
+      <a href="#Feature_correlation" style="--clr:#fb9da7;">Feature correlation</a>
+      <a href="#Sex" style="--clr:#fad4ae;">Sex & Age</a>
+      <a href="#Pclass" style="--clr:#88c59a;">Pclass & Fare</a>
+      <a href="#Name" style="--clr:#d0c6e9;">Name & Embarked</a>
+      <a href="#SibSp" style="--clr:#88c5fa;">SibSp & Parch</a>
+    </nav>
+  </header>
+
+
+  <section id="first"
+    style=" background-image: url(https://visitlancastercity.com/wp-content/uploads/Titanic-FINAL-Reduced.jpg); background-size: cover; color: #fff; text-align: center; font-size: 5rem;">
+    Titanic Date Analyzing</section>
+
+  <section id="Intro">
+
+
+    <div class="introContent">The Titanic, a British luxury liner, was one of the largest and most luxurious ships in
+      the world when it embarked on its maiden voyage. Registered at 46,328 tons, the ship had a displacement of over
+      52,000 tons when fully loaded. The Titanic was approximately 882.5 feet (269 meters) long and about 92.5 feet
+      (28.2 meters) wide. On April 14-15, 1912, during its maiden voyage from Southampton, England to New York City, the
+      Titanic sank, resulting in the deaths of approximately 1,500 passengers and crew members, making it one of the
+      most famous tragedies in modern history.</div>
+
+  </section>
+
+  <section id="Feature_correlation" style="--clr:#fb9da7;">
+
+    <div class="container">
+      <div class="images">
+        <img
+          src="https://media-hosting.imagekit.io/a4ae1c7160c64a46/Picture1.png?Expires=1838170188&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=T35UpeFl8W8IQ7bUjEsAHW8nYyCUZo63Iy6k9yN7604WVfytS0lhmvwY6TgTsRkqGNMb6-c7OP52pnKJU6hjBXMDArSsDq9tPcAC2KXa-Nklqj0NKhKVOdfe5HuLvVDONSocc9GSnJPcGNylrJpc9FtTabfQzyVbwugoCYf-zJi18CmPuRlm~0oGxUGUSNuOzIGPS1pd0MzcmDgEFX7wZLyRx14nU56ddBfI1JNycbI8OK5uLk-wIK-AwjhUW50~-NVTUIgHc3D~RxVgP8k0zDaN3-cfrLBEevQEE7GiqWGq7auPF~b08FpWAgypVe4-Jn8YX~q8T5-yZb002vLo2A__"
+          alt="图片1">
+
+      </div>
+      <div class="text">
+        <p>From the correlation coefficient, we found that the correlation between each attribute and the result is not
+          large, and only SibSp and Parch have high correlation among attributes, while the correlation between other
+          attributes is low. At the same time, the correlation between Fare and survived is higher than other features.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section id="Sex" style="--clr:#fad4ae;">
+    <div class="container">
+      <div class="images">
+        <img src="https://i.imghippo.com/files/SXt5102Pg.png">
+        <img src="https://i.imghippo.com/files/xUM3330SuI.png">
+      </div>
+      <div class="text">
+        <p>Titanic Passenger Sex Survival Statistics
+          The survival rate: Female (74.20%) > Male (18.89%).
+          The non-survival rate: Male (81.11%) > Female (25.80%).
+          Female survival rate is higher
+          <br><br>
+          Count of Passenger by Age Group and Sex
+          1st Young adults (20-34) are the largest group of passengers, Male (334) > Female (158).
+          2nd Middle-aged (35-54), male (122 people) > Female (71).
+          The group of children and teenagers is closer.
+          It can be seen that the majority of male passengers, especially Young adults and Middle-aged
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="Pclass" style="--clr:#88c59a;">
+
+    <div class="container">
+      <div class="images">
+        <img src="https://i.imghippo.com/files/IHu2746IlI.png" width="500" height="350">
+
+        <img src="https://i.imghippo.com/files/oEw9315Mds.png" width="500" height="350">
+
+        <img src="https://i.imghippo.com/files/StuG7863XyQ.png" width="500" height="350">
+      </div>
+      <div class="text">
+        <p>
+          There are 891 passengers on board in total. For the passenger's class, more than half of the passengers on
+          board belongs to the 3rd class. As for first and second
+          class, they almost equally distributed for the rest of half (1st class slightly more than 2nd class).
+          <br><br>
+          In this part, we analyzed the relationship between survival status and passenger's class. We found out that
+          higher class passengers are more likely to survive in the incident. For the 3rd class passengers, the survival
+          rate is ~24%. For 2nd class passengers,
+          the survival rate is ~47%. In contrast, for the 1st class passengers, the survival rate is ~63%.
+          <br><br>
+          Furthermore, for the 3rd class passenger, most of them bought the ticket below $20. For the 2nd class
+          passenger, most of them bought the ticket mainly in 2 price groups. 1. below $20, 2. around $20-$40. As for
+          the 1st class
+          passenger, most of them bought the ticket for ~$70 in average, which is a lot higher than the other 2 classes.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="Name" style="--clr:#d0c6e9;">
+
+
+    <div class="container">
+      <div class="images">
+        <img src="https://i.imghippo.com/files/cPJ5425nes.png">
+
+        <img src="https://i.imghippo.com/files/ahE1611fhs.png">
+
+        <img src="https://i.imghippo.com/files/vVwQ6886Ox.png">
+      </div>
+      <div class="text">
+        <p>
+          Passenger numbers based on Embarked:
+          According to the pie chart, the largest number of people boarded the ship at point S, followed by point C, and
+          finally point Q.
+          <br><br>
+
+          Title in relation to embarkation location:
+          According to the bar charts and the matrix, Mr has the largest percentage at all embarkation points, followed
+          by Miss and Mrs, in addition to a smattering of Noble or Special titles.
+          <br><br>
+          Survival Rate by Title & Embarked:
+          Based on the dimensions of title and embarkation point, we can see that Miss and Mrs have a higher survival
+          rate, followed by Master.
+        </p>
+      </div>
+    </div>
+
+
+
+  </section>
+
+  <section id="SibSp" style="--clr:#88c5fa;">
+
+
+    <div class="container">
+      <div class="images">
+        <img src="https://i.imghippo.com/files/ggF4858yM.png">
+
+        <img src="https://i.imghippo.com/files/RLFY6870k.png">
+
+        <img src="https://i.imghippo.com/files/RdOu7137oo.png">
+      </div>
+      <div class="text">
+        <p>
+          Chart 1: Survival Rate by Family Size (Top-Left)
+          Shows highest survival rates at FamilySize 2–4.
+
+          Alone (FamilySize = 1) and large families (5+) had significantly lower survival.
+
+          proves: small families had the highest survival rates overall.
+          <br><br>
+
+          Chart 2: Survival by Family Size and Class (Top-Right)
+          At small family sizes, more survivors are from 1st and 2nd class (blue tones).
+
+          For large families, survivors are mostly from 3rd class — who had lower survival overall.
+
+          This supports: small, higher-class families had better chances than large, lower-class ones.
+          <br><br>
+          Chart 3: Alone vs. With Family (Bottom)
+          Survival rate:
+
+          With Family: ~51%
+
+          Alone: only ~30%
+          proves: being with family increased survival chance by over 20%
+        </p>
+      </div>
+    </div>
+
+
+
+
+  </section>
+
+  <script>
+    let sec = document.querySelectorAll('section');
+    let links = document.querySelectorAll('nav a');
+
+    window.onscroll = () => {
+      sec.forEach(section => {
+        let top = window.scrollY;
+        let offset = section.offsetTop - 60;
+        let height = section.offsetHeight;
+        let id = section.getAttribute('id');
+
+        if (top >= offset && top < offset + height) {
+          links.forEach(link => {
+            link.classList.remove('active');
+            document.querySelector('nav a[href*=' + id + ']').classList.add('active');
+          })
+        }
+      })
+    };
+  </script>
+
+
+  <style>
+    .introContent {
+
+      padding-left: 250px;
+      padding-right: 250px;
+
+      font-size: 1.3rem;
+      text-transform: none;
+
+    }
+
+    #Intro {
+      width: 100%;
+      height: 100vh;
+      /* 覆盖整个视口高度 */
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, .4)),
+        url('https://recipereminiscing.wordpress.com/wp-content/uploads/2016/08/titanic-sinking.jpg');
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      font-size: 5rem;
+    }
+
+
+    #Feature_correlation {
+
+
+      background-image: url(https://media.istockphoto.com/id/667127454/vector/3d-rendered-illustration-of-sun-light-rays-under-water.jpg?s=612x612&w=0&k=20&c=NcIG8LaAEDn96LZS47c2l63_sxNjI59EUVZaBXIFkeQ=);
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      font-size: 5rem;
+
+    }
+
+
+    #Sex,
+    #Pclass,
+    #Name {
+
+
+      background-image: url(https://media.gettyimages.com/id/1060576020/video/underwater-light.jpg?s=640x640&k=20&c=nOnBxyXUSbU48bQ_Kl7wnZ9ZhWMFewlqrSjKmQFhwXM=);
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      font-size: 5rem;
+
+    }
+
+    #SibSp {
+
+
+      background-image: url(https://cdnb.artstation.com/p/assets/images/images/020/366/125/large/chai-waali-vvd-asset.jpg?1567512750);
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      font-size: 5rem;
+
+    }
+
+    .text {
+      text-transform: none;
+      font-size: 17px;
+    }
+  </style>
+
+
+</body>
+
+</html>
